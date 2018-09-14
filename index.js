@@ -36,6 +36,24 @@ pool.query(
   }
 );
 
+pool.query(
+  'CREATE TABLE IF NOT EXISTS actions(id SERIAL PRIMARY KEY, username TEXT, name TEXT, description TEXT, selectedCategory TEXT, selectedMethod TEXT, amount INT, notes TEXT, type TEXT, date DATE)',
+  (err, res) => {
+    if (err) {
+      console.log(err);
+    }
+  }
+);
+
+pool.query(
+  'CREATE TABLE IF NOT EXISTS categories(id SERIAL PRIMARY KEY, username TEXT, category TEXT)',
+  (err, res) => {
+    if (err) {
+      console.log(err);
+    }
+  }
+);
+
 const { DEFAULT_HOST, DEFAULT_PORT, RADIX } = require('./constants');
 const routes = require('./routes');
 
