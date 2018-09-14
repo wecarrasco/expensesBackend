@@ -1,6 +1,7 @@
 const induction = require('./Controllers/inductionController');
 const actions = require('./Controllers/actionsController');
 const category = require('./Controllers/categoryController');
+const notification = require('./Controllers/notificationController');
 
 module.exports = {
   name: 'APIRoutes',
@@ -30,6 +31,11 @@ module.exports = {
         method: 'POST',
         path: '/category',
         handler: category.newCategory
+      },
+      {
+        method: 'POST',
+        path: '/notificationsaving',
+        handler: notification.sendSavingsNotification
       }
     ]);
   }
