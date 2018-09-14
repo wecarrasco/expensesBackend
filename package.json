@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/wecarrasco/expensesBackend/issues"
   },
-  "homepage": "https://github.com/wecarrasco/expensesBackend#readme"
+  "homepage": "https://github.com/wecarrasco/expensesBackend#readme",
+  "dependencies": {
+    "hapi": "^17.5.4",
+    "hapi-postgres-connection": "^6.5.1",
+    "pg": "^7.4.3",
+    "sqorn": "0.0.24"
+  }
 }
