@@ -10,6 +10,7 @@ const pool = new Pool({
 // const pool = require('../db/dbConnection');
 
 exports.getInduction = async (req, res) => {
+  console.log(req);
   const user = req.server.info.id.substring(0, req.server.info.id.indexOf(':'));
   const resp = await pool.query(
     `SELECT * FROM induction WHERE username = '${user}'`
