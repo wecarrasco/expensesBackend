@@ -33,6 +33,11 @@ module.exports = {
         handler: category.newCategory
       },
       {
+        method: 'GET',
+        path: '/categories',
+        handler: category.getCategories
+      },
+      {
         method: 'POST',
         path: '/notificationsaving',
         handler: notification.sendSavingsNotification

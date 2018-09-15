@@ -18,9 +18,10 @@ exports.newAction = async (req, res) => {
     selectedCategory,
     selectedMethod,
     type,
-    date
+    date,
+    user
   } = req.payload;
-  const user = req.server.info.id.substring(0, req.server.info.id.indexOf(':'));
+  // const user = req.server.info.id.substring(0, req.server.info.id.indexOf(':'));
 
   const resp = await pool.query(
     `INSERT INTO actions (description,
@@ -59,7 +60,9 @@ exports.newAction = async (req, res) => {
 };
 
 exports.getActions = async (req, res) => {
-  const user = req.server.info.id.substring(0, req.server.info.id.indexOf(':'));
+  // const user = req.server.info.id.substring(0, req.server.info.id.indexOf(':'));
+  const user = req.query.user;
+
   const resp = await pool.query(
     `SELECT * FROM actions WHERE username = '${user}'`
   );

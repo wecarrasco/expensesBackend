@@ -10,8 +10,7 @@ const pool = new Pool({
 // const pool = require('../db/dbConnection');
 
 exports.getInduction = async (req, res) => {
-  console.log(req);
-  const user = req.server.info.id.substring(0, req.server.info.id.indexOf(':'));
+  const user = req.query.user;
   const resp = await pool.query(
     `SELECT * FROM induction WHERE username = '${user}'`
   );
@@ -25,9 +24,9 @@ exports.inductionSettings = async (req, res) => {
     dailyAverage,
     creditCardName,
     cutoffDay,
-    creditLimit
+    creditLimit,
+    user
   } = req.payload;
-  const user = req.server.info.id.substring(0, req.server.info.id.indexOf(':'));
   const resp = await pool.query(
     `INSERT INTO induction (username ,initialBudget, dailyAverage, creditCardName, cutoffDay, creditLimit) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id`,
     [user, initialBudget, dailyAverage, creditCardName, cutoffDay, creditLimit]

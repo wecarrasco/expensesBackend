@@ -58,8 +58,8 @@ const { DEFAULT_HOST, DEFAULT_PORT, RADIX } = require('./constants');
 const routes = require('./routes');
 
 const server = hapi.server({
-  // host: process.env.HOST || DEFAULT_HOST,
-  host: 'ec2-54-163-150-249.compute-1.amazonaws.com',
+  host: process.env.HOST || DEFAULT_HOST,
+  // host: 'ec2-54-163-150-249.compute-1.amazonaws.com',
   port: parseInt(process.env.PORT, RADIX) || DEFAULT_PORT,
   routes: {
     cors: {
